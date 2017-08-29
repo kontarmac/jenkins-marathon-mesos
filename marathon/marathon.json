@@ -1,0 +1,14 @@
+{
+  "id": "jenkins-marathon-mesos",
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "",
+      "network": "BRIDGE",
+      "portMappings": [
+        { "containerPort": 84, "hostPort": 0 }
+      ]
+    },
+    "volumes": []
+  }
+}
