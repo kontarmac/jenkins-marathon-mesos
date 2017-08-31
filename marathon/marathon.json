@@ -6,9 +6,25 @@
       "image": "",
       "network": "BRIDGE",
       "portMappings": [
-        { "containerPort": 84, "hostPort": 0 }
-      ]
-    },
-    "volumes": []
+        { "hostPort": 0, "containerPort": 84, "servicePort": 10002 }
+      ],
+      "forcePullImage":true
+    }
+  },
+  "instances": 1,
+  "cpus": 0.5,
+  "mem": 256,
+  "healthChecks": [{
+    "protocol": "HTTP",
+    "path": "/",
+    "portIndex": 0,
+    "timeoutSeconds": 10,
+    "gracePeriodSeconds": 10,
+    "intervalSeconds": 2,
+    "maxConsecutiveFailures": 10
+  }],
+  "labels":{
+    "HAPROXY_GROUP":"external",
+    "HAPROXY_0_VHOST": "jenkins-marathon-mesos.marathon.mesos"
   }
 }
